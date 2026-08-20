@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Warning!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { text-align: center; font-family: sans-serif; padding-top: 50px; background-color: #f4f4f9; }
+        /* প্র্যাঙ্ক বক্স স্টাইল */
+        #prank-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #ff4d4d;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Loading System Updates...</h2>
+    <p>Please wait while we scan your phone.</p>
+
+    <!-- পপ-আপ বক্স -->
+    <div id="prank-box">
+        <h3 style="color: red; margin-top: 0;">⚠️ System Alert</h3>
+        <p id="prank-text">Warning!</p>
+        <button onclick="nextMessage()">OK</button>
+    </div>
+
+    <script>
+        var count = 0;
+        var messages = [
+            "Warning: Phone battery is drinking water! ☕",
+            "Alert: Ghost detected in your front camera! 👻",
+            "System: Virus is eating your storage... 👾",
+            "Error: Keyboard needs a nap 😴"
+        ];
+
+        // পেজ লোড হওয়ার ৫ সেকেন্ড পর শুরু হবে
+        setTimeout(function() {
+            document.getElementById("prank-box").style.display = "block";
+            document.getElementById("prank-text").innerText = messages[count];
+        }, 5000);
+
+        function nextMessage() {
+            count++;
+            if (count < messages.length) {
+                document.getElementById("prank-text").innerText = messages[count];
+            } else {
+                document.getElementById("prank-text").innerText = "haha Prank Successful! 😂";
+                document.querySelector("#prank-box button").style.display = "none"; // ওকে বাটন গায়েব হয়ে যাবে
+            }
+        }
+    </script>
+</body>
+</html>
