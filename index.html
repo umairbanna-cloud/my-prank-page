@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Warning!</title>
+    <script>
+        var count = 0;
+        var messages = [
+            "Warning: Phone battery is drinking water! ☕",
+            "Alert: Ghost detected in your front camera! 👻",
+            "System: Virus is eating your storage... 👾",
+            "Error: Keyboard needs a nap 😴"
+        ];
+
+        function startPrank() {
+            var interval = setInterval(function() {
+                if (count < messages.length) {
+                    alert(messages[count]);
+                    count++;
+                } else {
+                    clearInterval(interval);
+                    alert("haha Prank Successful! 😂");
+                }
+            }, 1000); // প্রতি ১ সেকেন্ডে মেসেজ আসবে
+        }
+    </script>
+</head>
+<body onload="startPrank()" style="text-align: center; font-family: sans-serif; padding-top: 50px;">
+    <h2>Loading System Updates...</h2>
+    <p>Please wait while we scan your phone.</p>
+</body>
+</html>
